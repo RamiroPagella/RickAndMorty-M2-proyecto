@@ -1,10 +1,11 @@
 import Card from './Card';
+import './cards.css'
 
 export default function Cards(props) {
    const {characters, onClose} = props;
 
    return (
-      <>
+      <div className='cards-container'>
          {
             characters.map(e => {
                return (
@@ -22,6 +23,6 @@ export default function Cards(props) {
                )
             })
          }
-      </>
+      </div>
    )
 }

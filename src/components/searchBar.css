@@ -1,0 +1,22 @@
+.form-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-container input {
+    border: solid black 1px;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.42);
+    height: 60%;
+    width: 30%;
+    border-radius: 15px;
+}
+.form-container button {
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.42);
+    border: solid black 1px;
+    height: 65%;
+    width: 100px;
+    margin-left: 35px;
+    border-radius: 15px;
+
+}

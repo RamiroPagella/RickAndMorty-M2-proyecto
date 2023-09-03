@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import './searchBar.css'
 
 export default function SearchBar(props) {
    const [ id, setId ] = useState('');
@@ -8,7 +9,7 @@ export default function SearchBar(props) {
    }
 
    return (
-      <div>
+      <div className='form-container'>
          <input type='text' onChange={handleChange} value={id} />
          <button onClick={() => props.onSearch(id) }>Agregar</button>
       </div>

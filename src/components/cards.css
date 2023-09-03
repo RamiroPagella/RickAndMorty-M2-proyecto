@@ -1,0 +1,9 @@
+.cards-container {
+    background-color: #adb5bd;
+    min-height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    justify-items: center;
+} 
+

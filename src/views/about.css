@@ -1,0 +1,14 @@
+.about-container {
+    background-color: #adb5bd;
+    height: 800px;
+    padding: 10px;
+}
+.about-container h1 {
+    text-align: left; 
+    font-weight: 600;
+}
+.about-container p {
+    margin-left: 15px;
+    text-align: left; 
+    font-weight: 600;
+}

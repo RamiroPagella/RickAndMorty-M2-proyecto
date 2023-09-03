@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './loginForm.css'
 
 
 function validate(userData) {
@@ -41,7 +42,9 @@ export default function LoginForm (props) {
 
 
     return (
-        <form>
+        <div className='login-form-container'>
+
+            <form className='login-form'>
 
             <label>Email:</label>
             <input 
@@ -63,7 +66,11 @@ export default function LoginForm (props) {
 
             <button type='submit' onClick={handleSubmit} >Submit</button>
 
-        </form>
+            </form>
+
+        </div>
+        
+        
     )
 
 }

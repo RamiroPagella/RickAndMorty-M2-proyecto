@@ -55,6 +55,7 @@ function App() {
 
 
 
+
    return (
       <div className='App'>
          
@@ -65,7 +66,7 @@ function App() {
 
          <Routes>
 
-            <Route path='/' element={<LandingPage login={login} />} />
+            <Route path='/' element={<LandingPage login={login} />} /> 
 
             <Route path='/home' element={ <Cards characters={characters} onClose={onClose}/> } />
 

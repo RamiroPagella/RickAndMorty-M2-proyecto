@@ -1,0 +1,8 @@
+/* contenedor padre de login-form-container */
+.landing-page-container {
+    background-color: #adb5bd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
