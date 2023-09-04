@@ -1,17 +1,65 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import './card.css'
+import { addFav, removeFav, removeCharacter } from '../redux/actions'
+
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { TiDelete } from 'react-icons/ti'
+
+
+
 
 export default function Card(props) {
-   const {id, name, status, species, gender, origin, onClose} = props;
+
+   const { id, name, status, species, gender, origin, image, fav } = props;
+   const character = {id, name, status, species, gender, origin, image, fav}
+
+   const favorites = useSelector(state => state.myFavorites);
+   const thisFav = favorites.filter(f => f.id === id)
+
+   const dispatch = useDispatch();
+   const location = useLocation();
+
+
+
+
+   const handleFavorite = (character) => {
+      if (!thisFav[0]) {
+         dispatch(addFav(character));
+      } 
+      else {
+         dispatch(removeFav(id));
+      }
+   }
+   
+
 
 
 
    return (
       <div className='card-container'>
 
-         <button onClick={() => onClose(id) }>
-            X
-         </button>
+         <div className='buttons-container'>
+            
+            {
+               thisFav[0] ? ( <AiFillHeart onClick={() => {handleFavorite(character)}} className='fav-button' /> ) :
+               ( <AiOutlineHeart onClick={() => {handleFavorite(character)}} className='fav-button' /> )
+
+            }
+
+            {
+               location.pathname == '/home' ? 
+               <TiDelete 
+                  onClick={() => dispatch(removeCharacter(id))}
+                  className='delete-button'
+               /> : null
+            }
+            
+
+         </div>
+         
 
          <div className='info-container'>
             <p>Name:</p>
@@ -48,18 +96,10 @@ export default function Card(props) {
             </h2>
          </div>
          
-         
-         
-
-         
-
-         
-
-         
 
          <div className='image-container'>
             <Link to={`/detail/${id}`}>
-               <img src={props.image} alt={props.name} />
+               <img src={image} alt={name} />
             </Link>
          </div>
          

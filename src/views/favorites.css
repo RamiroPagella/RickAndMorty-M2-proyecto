@@ -1,9 +1,8 @@
-.cards-container {
+.favorites-container {
     background-color: #adb5bd;
     min-height: 85vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     justify-items: center;
-} 
-
+}

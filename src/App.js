@@ -8,12 +8,12 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import About from './views/About'
 import Detail from './views/Detail'
 import LandingPage from './views/LandingPage';
+import Favorites from './views/Favorites'
 
 
 
 function App() {
 
-   const [ characters, setCharacters ] = useState([]);
    const location = useLocation();
 
    const navigate = useNavigate();
@@ -22,25 +22,6 @@ function App() {
    const email = 'ramiro.s.pagella@gmail.com'
    const password = '12345678'
 
-
-
-
-   
-
-   function onSearch(id) {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-         if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
-   }
-
-   function onClose(id) {
-      const filterCharacters = characters.filter(character => character.id !== parseInt(id))
-      setCharacters(filterCharacters);
-   }
 
    function login (userData) {
       if (userData.email === email && userData.password === password) {
@@ -61,20 +42,21 @@ function App() {
          
          
          {location.pathname !== '/' && (
-            <Nav onSearch={onSearch} />
+            <Nav  />
          )}
 
          <Routes>
 
             <Route path='/' element={<LandingPage login={login} />} /> 
 
-            <Route path='/home' element={ <Cards characters={characters} onClose={onClose}/> } />
+            <Route path='/home' element={ <Cards /> } />
+
+            <Route path='/favorites' element={ <Favorites/> } />
 
             <Route path='/about' element={ <About/> } />
 
             <Route path='/detail/:id' element={ <Detail /> } />
 
-            <Route path='*' element={''} />
 
          </Routes>
 

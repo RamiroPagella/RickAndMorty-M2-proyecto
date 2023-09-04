@@ -5,7 +5,6 @@ import { Link , useLocation} from 'react-router-dom'
 import './nav.css'
 
 export default function Nav(props) {
-    const { onSearch } = props;
     const location = useLocation();
 
     // const estiloSinLink = {
@@ -17,18 +16,22 @@ export default function Nav(props) {
         <div className='nav-container-z1'>
 
             <div className='nav-container-z2'>
-                
+
+                <Link to='/home' className='link'>
+                    <span>Home</span>
+                </Link>
+
+                <Link to='/favorites' className='link'>
+                    <span>Favorites</span>
+                </Link>
 
                 <Link to='/about' className='link'>
                     <span>About</span>
                 </Link>
 
-                <Link to='/home' className='link'>
-                    <span>Home</span>
-                </Link>
             </div>
 
-            { location.pathname == '/home' && (<SearchBar onSearch={onSearch}/>) }
+            { location.pathname == '/home' && (<SearchBar />) }
             
         </div>
 

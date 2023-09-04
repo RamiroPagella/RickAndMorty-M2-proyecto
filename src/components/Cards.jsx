@@ -1,24 +1,26 @@
 import Card from './Card';
 import './cards.css'
+import { useSelector } from 'react-redux'
 
 export default function Cards(props) {
-   const {characters, onClose} = props;
+   const characters = useSelector(state => state.characters)
+
 
    return (
       <div className='cards-container'>
          {
-            characters.map(e => {
+            characters.map(({ name, id, status, species, gender, origin, image, fav }) => {
                return (
                   <Card 
-                     name={e.name}
-                     id={e.id}
-                     status={e.status}
-                     species={e.species}
-                     gender={e.gender}
-                     origin={e.origin.name}
-                     image={e.image}
-                     key={e.id}
-                     onClose={onClose}
+                     name={name}
+                     id={id}
+                     status={status}
+                     species={species}
+                     gender={gender}
+                     origin={origin.name}
+                     image={image}
+                     key={id}
+                     fav={fav}
                   />
                )
             })
