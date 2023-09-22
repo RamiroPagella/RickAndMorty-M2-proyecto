@@ -31,11 +31,6 @@ export const addCharacter = (id) => {
             console.log(error);
         }
         
-        
-            
-        
-        
-    
     }
 }
 
@@ -50,25 +45,12 @@ export const removeCharacter = (id) => {
 
 
 
-export const addFav = (character) => {
+export const addFav = (favorites) => { //se envia el array de favoritos que envio el servidor
 
-    return async (dispatch) => {
-
-        try { 
-
-            const endpoint = 'http://localhost:3001/rickandmorty/fav';
-            const { data } = axios.post(endpoint, character);
-
-            return dispatch({
-                type: ADD_FAV,
-                payload: data,
-            });
-            
-        } catch (error) {
-            console.log(error);
-        }
-        
-    };
+    return {
+        type: ADD_FAV,
+        payload: favorites
+    }
 
 };
 

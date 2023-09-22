@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 import './searchBar.css'
-
+//
+import { BiSolidSearch } from 'react-icons/bi'
+//
 import { useDispatch } from 'react-redux';
 import { addCharacter } from '../redux/actions';
 
@@ -14,11 +16,19 @@ export default function SearchBar(props) {
    }
 
    return (
-      <div className='form-container'>
+      <div className='search-form'>
 
-         <input type='text' onChange={handleChange} value={inputID} />
+         <input type='text' onChange={handleChange} value={inputID} placeholder='Ingrese ID de personaje (deje vacio para ID random)'/>
 
-         <button onClick={ () => {dispatch(addCharacter(inputID))} } > Agregar </button>
+         <div className='search-button'>
+
+            <BiSolidSearch 
+               onClick={ () => {dispatch(addCharacter(inputID))} } 
+               color='#212529'
+               size={25}
+             />
+             
+         </div>
 
       </div>
 

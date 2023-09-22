@@ -26,8 +26,9 @@ server.use((req, res, next) => {
     next();
 });
 
+server.use(express.json());
+
 server.use('/rickandmorty', router);
 
-server.use(express.json());
 
 server.use(morgan("dev"));

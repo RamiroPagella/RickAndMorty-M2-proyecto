@@ -24,10 +24,10 @@ export default function LoginForm (props) {
         email: '',
         password: ''
     })
+    const { login } = props;
 
     //
     
-    const { login } = props;
     
     function handleChange (event) {
         setUserData({

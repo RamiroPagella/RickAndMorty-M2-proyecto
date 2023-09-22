@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios'
 
 import './card.css'
 import { addFav, removeFav, removeCharacter } from '../redux/actions'
@@ -11,9 +12,9 @@ import { TiDelete } from 'react-icons/ti'
 
 
 
-export default function Card(props) {
+export default function Card ( { id, name, status, species, gender, origin, image } ) {
 
-   const { id, name, status, species, gender, origin, image, } = props;
+   
    const character = {id, name, status, species, gender, origin, image}
 
    const favorites = useSelector(state => state.myFavorites); 
@@ -24,12 +25,17 @@ export default function Card(props) {
 
 
 
-   const handleFavorite = (character) => {
-      if (!thisFav) {
-         dispatch(addFav(character));
-      } 
-      else {
-         dispatch(removeFav(id));
+   const handleFavorite = async (character) => {
+      try {
+         
+         const response = await axios.post("http://localhost:3001/rickandmorty/fav", {character});
+         const { data } = response; // data -> array de favoritos
+         
+         if (!thisFav) dispatch(addFav(data));
+         else dispatch(removeFav(id));
+
+      } catch (error) {
+         console.log(error);
       }
    }
    

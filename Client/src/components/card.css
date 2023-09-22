@@ -3,7 +3,7 @@
     box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.42);
     border-radius: 15px;
     border-width: 2px;
-    width: auto;
+    max-width: 300px;
     height: 615px;
     margin: 10px;
     padding: 10px;
@@ -42,23 +42,26 @@
     flex-direction: column;
 }
 .info-container p {
+    color: #212529;
     background-color: #adb5bd;
     box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.42);
     text-align: left;
     font-weight: 600;
     margin: 0;
     width: 22%;
-    padding-left: 4px;
+    padding-left: 7px;
     padding-right: 4px;
     border-radius: 15px;
     margin-bottom: 5px;
+    
 }
 .info-container h2 {
+    color: #212529;
     background-color: #adb5bd;    
     box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.42);
     border-radius: 15px;
     padding: 0px;
-    padding-left: 4px;
+    padding-left: 7px;
     padding-bottom: 0px;
     margin: 0px;
     font-size: 18px;
@@ -66,6 +69,9 @@
     font-weight: 900;
     overflow: hidden;
     text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: scroll;
+    white-space: nowrap;
 }
 
 
